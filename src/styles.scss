@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$dark: #282828;
+
+* {
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase;
+}
+
+body {
+    background: #aa9f95;
+    color: #03e003;
+    padding: 1em;
+}
+
+.justify-self-right { justify-self: right; }
+
+a {
+    padding: 0.5em;
+}
+a:hover {
+    background-color: #03e003;
+    color: $dark;
+}
+
+#app {
+    height: calc(100vh - 2em);
+    border-radius: 2.5rem;
+}
+
+header, .content {
+    background: rgba($dark, 1.0);
+    border-color: #03e003;
+}
+
+header {
+    border-radius: 2.5rem 2.5rem 0 0;
+
+    h1 {
+        @apply text-6xl;
+        // font-size: 4em;
+        line-height: 4rem;
+
+        span {
+            /* padding: 5px;
+            color: $dark;
+            background: #03e003; */
+        }
+    }
+}
+
+nav {
+}
+
+h2 {
+    // font-size: 2em;
+    @apply text-4xl;
+}
+
+.content {
+    position: relative;
+    opacity: 0.5;
+    // height: 100%;
+    border-radius: 0 0 2.5rem 2.5rem;
+
+    &:after {
+        background: center center url('./assets/img/space-1920.jpg');
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+}

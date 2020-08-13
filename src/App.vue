@@ -1,32 +1,23 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<div id="app" class="container mx-auto">
+    <header class="py-8 px-12 border-dotted border-b-4 grid grid-cols-2">
+        <h1>R<span>B</span></h1>
+        <nav role="main" class="grid grid-cols-2 gap-4 text-center justify-self-right">
+            <a href="about.html">About</a>
+            <a href="work.html">Work</a>
+        </nav>
+    </header>
+    <div class="content lg:container lg:mx-auto text-xl py-8 px-12">
+        <h2>Hi,</h2
+        <h3>I'm Rodney Blevins</h3>
+        <p>Yeah, you can tell I'm a nerdy coder.</p>
     </div>
-    <router-view/>
-  </div>
+</div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import './styles.scss';
+export default {
+
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+</script>
