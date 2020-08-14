@@ -17,14 +17,28 @@ body {
     padding: 1em;
 }
 
+h3 {
+    @apply text-2xl;
+}
+h4 {
+    @apply text-xl;
+}
+
+p {
+    @apply py-4;
+}
+
 .justify-self-right { justify-self: right; }
 
 a {
     padding: 0.5em;
-}
-a:hover {
-    background-color: #03e003;
-    color: $dark;
+
+    &.selected, &:hover, &:not(.menu-item):focus {
+        outline: none;
+        background-color: #03e003;
+        color: $dark;
+    }
+    &:focus { outline: none; }
 }
 
 #app {
@@ -41,6 +55,8 @@ header {
     border-radius: 2.5rem 2.5rem 0 0;
 
     h1 {
+        position: relative;
+        left: -5px;
         @apply text-6xl;
         // font-size: 4em;
         line-height: 4rem;
@@ -53,7 +69,17 @@ header {
     }
 }
 
-nav {
+ul#nav {
+    list-style-type: none;
+
+    li {
+        &:focus {
+            outline: none;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
 }
 
 h2 {
@@ -63,7 +89,7 @@ h2 {
 
 .content {
     position: relative;
-    opacity: 0.5;
+    // opacity: 0.5;
     // height: 100%;
     border-radius: 0 0 2.5rem 2.5rem;
 
