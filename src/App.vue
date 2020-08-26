@@ -8,7 +8,7 @@
             <menu-item v-for="(item, index) in menuItems" :key="'menu-item-' + index" :selectedMenuItemIndex="selectedMenuItemIndex" :item="item" :index="index" @input="selectedMenuItemIndex = $event" :tabindex="index + 1"></menu-item>
         </ul>
     </header>
-    <div class="content lg:container lg:mx-auto text-l py-8 px-12">
+    <div class="content lg:container lg:mx-auto text-l py-8 px-12 mb-6">
         <router-view />
     </div>
 </div>
