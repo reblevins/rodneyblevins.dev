@@ -1,14 +1,17 @@
 <template>
 <div id="app" class="container mx-auto" @keyup="handleKeyUp">
-    <header class="py-8 px-12 border-dotted border-b-4">
+    <header class="px-8 py-8 lg:px-12 border-dotted border-b-4">
         <p>Hi, I'm</p>
         <h1>Rodney Blevins</h1>
+		<h3>I guess you can tell that I'm a coder geek.</h3>
+        <!-- <p>I'm a full stack web developer with 10+ years experience building websites with PHP, 5+ years experience building Web apps and 3+ years experience building high volume SaaS web applications in Vue.js on the frontend, PHP / Node.js on the backend. Currently focusing more on the frontend.</p> -->
+		<h4>And I'm passionate about writing clean, elegant code.</h4>
         <h3 class="text-xl py-4">Please select an option from the following menu:</h3>
         <ul id="nav" @keyup="handleKeyUp" tabindex="-1" class="max-w-none sm:max-w-xs">
             <menu-item v-for="(item, index) in menuItems" :key="'menu-item-' + index" :selectedMenuItemIndex="selectedMenuItemIndex" :item="item" :index="index" @input="selectedMenuItemIndex = $event" :tabindex="index + 1"></menu-item>
         </ul>
     </header>
-    <div class="content lg:container lg:mx-auto text-l py-8 px-12 mb-6">
+    <div class="content lg:container lg:mx-auto text-l px-8 py-8 lg:px-12 mb-6">
         <router-view />
     </div>
 </div>
