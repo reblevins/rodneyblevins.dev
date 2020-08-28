@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import VueWaypoint from 'vue-waypoint'
+Vue.use(VueWaypoint)
+
 Vue.config.productionTip = false
 
 Vue.directive('focus', {
