@@ -40,7 +40,7 @@ export default {
                 setTimeout(() => {
                     this.width++
                     this.calculateWidth()
-                }, 5)
+                }, 10)
             } else {
             }
         },

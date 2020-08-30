@@ -1,5 +1,5 @@
 <template>
-<div id="app" class="container mx-auto" @keyup="handleKeyUp">
+<div id="app" class="container mx-auto" @keyup="handleKeyUp" ref="app">
     <header class="px-8 py-8 lg:px-12 border-dotted border-b-4">
         <p>Hi, I'm</p>
         <h1>Rodney Blevins</h1>
@@ -42,6 +42,16 @@ export default {
     mounted() {
         document.getElementById('nav').focus();
     },
+	watch: {
+		'$route'(value) {
+			if (!this.$route.query.article) {
+				window.scrollTo({
+					top: this.$refs.app.offsetTop,
+					behavior: "smooth"
+				})
+			}
+		}
+	},
     methods: {
         handleKeyUp(event) {
             switch (event.code) {
