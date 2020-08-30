@@ -1,6 +1,12 @@
 <template>
 <section class="work ">
 	<h3 class="section-header">My Work</h3>
+	<ul class="work-list mb-10">
+		<li><router-link to="/work?article=colt-firearms">Colt Firearms Website and CMS</router-link></li>
+		<li><router-link to="/work?article=point-of-sale">Point of Sale</router-link></li>
+		<li><router-link to="/work?article=website-builder">Website Builder</router-link></li>
+		<li><router-link to="/work?article=checkout-page">Checkout Page</router-link></li>
+	</ul>
 	<article ref="colt-firearms" class="work-article">
 		<h4>Colt Firearms</h4>
 		<p>Whether you're a firearms enthusiast or not, there's no denying that Colt is an iconic brand and it was a privilege to be one of the engineers working on their new website.</p>
@@ -49,11 +55,20 @@
 export default {
 	mounted() {
 		if (this.$route.query.article) {
-			console.log(this.$refs[this.$route.query.article]);
 			window.scrollTo({
-				top: this.$refs[this.$route.query.article].offsetTop + 300,
+				top: this.$refs[this.$route.query.article].offsetTop + 400,
 				behavior: "smooth"
 			})
+		}
+	},
+	watch: {
+		'$route.query.article'(value) {
+			if (this.$route.query.article) {
+				window.scrollTo({
+					top: this.$refs[this.$route.query.article].offsetTop + 400,
+					behavior: "smooth"
+				})
+			}
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <template>
 <div class="skill" v-waypoint="{ active: active, callback: inView, options: intersectionOptions }">
-    <div class="description">{{ skill.description }}</div>
+    <div class="description">{{ skill.description }} ({{ skill.length }})</div>
     <div class="bar" :style="'width: ' + width + '%;'">
         {{ width }}%
     </div>

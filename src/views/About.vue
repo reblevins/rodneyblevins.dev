@@ -2,9 +2,11 @@
 <section class="about">
 	<h3 class="section-header">About Me</h3>
 	<article>
-		<p><img class="right md:max-w-xs" src="../assets/img/rodneyblevins.jpg" alt="Rodney Blevins">I started writing PHP in 1997 and I was immediately hooked. Since then, I have made websites for various Youth With A Mission (YWAM) ministries around the world, mostly involving WordPress. I have created WordPress templates, customized them, and created plugins.</p>
+		<p><img class="right md:max-w-xs" src="../assets/img/rodneyblevins.jpg" alt="Rodney Blevins">I'm a full stack web developer with 10+ years experience building websites with PHP, 5+ years experience building Web apps and 3+ years experience building high volume SaaS web applications in Vue.js on the frontend, PHP / Node.js on the backend. Currently focusing more on the frontend.</p>
+		<p>I started writing PHP in 1997 and I was immediately hooked. Since then, I have made websites for various Youth With A Mission (YWAM) ministries around the world, mostly involving WordPress. I have created WordPress templates, customized them, and created plugins.</p>
+		<h4 class="mt-6 border-b-0">I'm a passionate life-long learner and I love to code.</h4>
 	</article>
-	<h3 class="section-header">Skills <span class="float-right text-xs pt-4 inline-block">(Based on <a href="https://app.pluralsight.com/score/redir/c9a61c1d-324a-4eb8-9cfe-dc9ac7bf502c?0bdf240123">Pluralsight Skill Assessments</a>)</span></h3>
+	<h3 class="section-header">Skills</span></h3>
 	<article>
 		<div class="skills">
 			<skill-bar :skill="skill" v-for="(skill, index) in skills" :key="'skill-list-item-' + index"></skill-bar>
@@ -18,12 +20,14 @@
 		<p>And in keeping with my philosophy about transitions &amp; animations for complex UI/UX like this or a Point of Sale, they should generally be used sparingly and mostly to enhance the user's understanding of what is happening once they initiate an action. For example, they click the header in a list of accordion sections: a triangle bullet rotates downwards, the accordion section slides open, etc.</p>
 	</article>
 	<h3 class="section-header">Other Work</h3>
-	<ul class="work-list">
-		<li><router-link to="/work?article=colt-firearms">Colt Firearms Website and CMS</router-link></li>
-		<li><router-link to="/work?article=point-of-sale">Point of Sale</router-link></li>
-		<li>Website Builder</li>
-		<li>Checkout Page</li>
-	</ul>
+	<article>
+		<ul class="work-list">
+			<li><router-link to="/work?article=colt-firearms">Colt Firearms Website and CMS</router-link></li>
+			<li><router-link to="/work?article=point-of-sale">Point of Sale</router-link></li>
+			<li><router-link to="/work?article=website-builder">Website Builder</router-link></li>
+			<li><router-link to="/work?article=checkout-page">Checkout Page</router-link></li>
+		</ul>
+	</article>
 </section>
 </template>
 
@@ -38,39 +42,43 @@ export default {
 		return {
 			skills: [
 				{
+                    description: 'PHP',
+					length: '10+ years',
+                    percent: 85
+                },
+				{
                     description: 'HTML5',
+					length: '10+ years',
                     percent: 91
                 },
 				{
                     description: 'CSS',
+					length: '10+ years',
                     percent: 80
                 },
 				{
 					description: 'JavaScript',
-					percent: 79
+					length: '5+ years',
+					percent: 88
 				},
 				{
 					description: 'Vue.js',
+					length: '3+ years',
 					percent: 85
 				},
                 {
                     description: 'NPM',
+					length: '3+ years',
                     percent: 87
                 },
-                {
-                    description: 'Architecting in AWS',
-                    percent: 49
-                },
-                {
-                    description: 'AWS Cloud Compute',
-                    percent: 50
-                },
-                {
-                    description: 'AWS Cloud Security',
-                    percent: 57
+				{
+                    description: 'webpack',
+					length: '3+ years',
+                    percent: 65
                 },
                 {
                     description: 'AWS Storage',
+					length: '1 year',
                     percent: 79
                 },
 
