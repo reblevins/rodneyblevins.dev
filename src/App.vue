@@ -4,7 +4,8 @@
         <div>
 			<p>Hi, I'm</p>
 	        <h1>Rodney Blevins</h1>
-			<h3>I guess you can tell that I'm a coder geek.</h3>
+			<h3 class="text-2xl">I guess you can tell that I'm a coder geek.</h3>
+			<h4 class="text-lg">And I'm always ready to tackle a new challenge using my current skillset or to learn something completely new when the occasion rises.</h4>
         </div>
         <!-- <h3 class="text-xl py-4">Please select an option from the following menu:</h3> -->
         <ul id="nav" @keyup="handleKeyUp" tabindex="-1" class="max-w-none sm:max-w-xs">
@@ -19,11 +20,7 @@
 
 <script>
 import './styles.scss';
-import MenuItem from './components/MenuItem'
 export default {
-    components: {
-        'menu-item': MenuItem
-    },
     data() {
         return {
             selectedMenuItemIndex: 0,

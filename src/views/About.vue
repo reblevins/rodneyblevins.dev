@@ -2,9 +2,8 @@
 <section class="about">
 	<h3 class="section-header">About Me</h3>
 	<article>
-		<p><img class="right md:max-w-xs" src="../assets/img/rodneyblevins.jpg" alt="Rodney Blevins">I'm a full stack web developer with 10+ years experience building websites with PHP, 5+ years experience building Web apps and 3+ years experience building high volume SaaS web applications in Vue.js on the frontend, PHP / Node.js on the backend. Currently focusing more on the frontend.</p>
+		<p><img class="right md:max-w-xs" src="../assets/img/rodneyblevins.jpg" alt="Rodney Blevins">I'm a full stack web developer with 10+ years experience building websites with PHP, 5+ years experience building Web apps and 3+ years experience building high volume SaaS web applications in Vue.js on the frontend, PHP / Node.js on the backend.</p>
 		<p>I started writing PHP in 1997 and I was immediately hooked. Since then, I have made websites for various Youth With A Mission (YWAM) ministries around the world, mostly involving WordPress. I have created WordPress templates, customized them, and created plugins.</p>
-		<h4 class="mt-6 border-b-0">I'm a passionate life-long learner and I love to code.</h4>
 	</article>
 	<h3 class="section-header">Skills</span></h3>
 	<article>
@@ -22,10 +21,10 @@
 	<h3 class="section-header">Other Work</h3>
 	<article>
 		<ul class="work-list">
-			<li><router-link to="/work?article=colt-firearms">Colt Firearms Website and CMS</router-link></li>
-			<li><router-link to="/work?article=point-of-sale">Point of Sale</router-link></li>
-			<li><router-link to="/work?article=website-builder">Website Builder</router-link></li>
-			<li><router-link to="/work?article=checkout-page">Checkout Page</router-link></li>
+			<li><router-link to="/work">Colt Firearms Website and CMS</router-link></li>
+			<li><router-link to="/work">Point of Sale</router-link></li>
+			<li><router-link to="/work">Website Builder</router-link></li>
+			<li><router-link to="/work">Checkout Page</router-link></li>
 		</ul>
 	</article>
 </section>
@@ -77,7 +76,7 @@ export default {
                     percent: 65
                 },
                 {
-                    description: 'AWS Storage',
+                    description: 'AWS',
 					length: '1 year',
                     percent: 79
                 },
