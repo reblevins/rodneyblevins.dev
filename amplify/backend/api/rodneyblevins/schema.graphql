@@ -1,0 +1,9 @@
+type Article @model {
+  id: ID!
+  name: String!
+  content: String
+  featured: Boolean
+  published: Boolean
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}

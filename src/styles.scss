@@ -271,6 +271,29 @@ article {
 	}
 }
 
+.dashboard {
+
+}
+.article {
+    label {
+        @apply mb-4;
+        display: inline-block;
+        input, textarea {
+            @apply p-4;
+        }
+    }
+    label:not(.checkbox) {
+        @apply grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    
+    h2 {
+        grid-column: span 2;
+    }
+    button {
+        display: block;
+    }
+}
 // Transitions
 .grow-bar-enter-active, .grow-bar-leave-active {
     transition: width 5s;
