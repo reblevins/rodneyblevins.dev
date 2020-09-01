@@ -5,12 +5,21 @@ import store from './store'
 import Amplify from 'aws-amplify';
 import '@aws-amplify/ui-vue';
 import aws_exports from './aws-exports';
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { faSpinner, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueWaypoint from 'vue-waypoint'
 
 Amplify.configure(aws_exports);
 
-import VueWaypoint from 'vue-waypoint'
 Vue.use(VueWaypoint)
 
+library.add(faSpinner, faCloudUploadAlt)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+dom.watch()
+
+import Loading from '@/components/Loading'
+Vue.component('loading', Loading)
 Vue.config.productionTip = false
 
 Vue.directive('focus', {

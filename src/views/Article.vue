@@ -1,15 +1,19 @@
 <template>
 
-<div class="article loading" v-if="loading"><h2>Loading...</h2></div>
+<div class="article" v-if="articleNotFound">
+	<h2>Article not found</h2>
+	<router-link to="/dashboard/articles">Back to Articles</router-link>
+</div>
 
-<div class="article" v-else-if="!articleNotFound">
+<div class="main article" v-else>
+    <router-link to="/dashboard/articles">Back to Articles</router-link>
     <h2>Article</h2>
     <label>Name
         <input type="text" v-model="article.name">
     </label>
     <label>Content
-        <textarea name="content" rows="8" cols="80" v-model="article.content"></textarea>
     </label>
+    <div rows="8" cols="80" contenteditable="true" @input="handleInput" v-html="content"></div>
     <label class="checkbox" for="featured">
         <input type="checkbox" v-model="article.featured"> Featured
     </label>
@@ -25,11 +29,7 @@
 			<button class="danger" @click="deleteArticle">Confirm</button>
 		</template>
 	</div>
-</div>
-
-<div class="article" v-else>
-	<h2>Article not found</h2>
-	<router-link to="/dashboard/articles">Back to Articles</router-link>
+    <loading v-if="loading"></loading>
 </div>
 
 </template>
@@ -47,6 +47,7 @@ export default {
         return {
 			loading: true,
 			articleNotFound: false,
+            content: '',
             article: {
                 name: '',
                 content: '',
@@ -55,7 +56,10 @@ export default {
                 createdAt: null,
                 updatedAt: null
             },
-			confirmDelete: false
+			confirmDelete: false,
+            createSubscription: null,
+            deleteSubscription: null,
+            updateSubscription: null,
         }
     },
     created() {
@@ -63,9 +67,22 @@ export default {
             this.getArticle()
         } else {
 			this.loading = false
-            this.subscribe()
-			this.subscribeToUpdate()
-			this.subscribeToDelete()
+            this.subscribeToCreate()
+        }
+        this.subscribeToUpdate()
+        this.subscribeToDelete()
+    },
+    beforeDestroy() {
+        if (this.createSubscription)
+            this.createSubscription.unsubscribe()
+        if (this.deleteSubscription)
+            this.deleteSubscription.unsubscribe()
+        if (this.updateSubscription)
+            this.updateSubscription.unsubscribe()
+    },
+    watch: {
+        id(newVal, oldVal) {
+            if (newVal != oldVal) this.getArticle()
         }
     },
     methods: {
@@ -79,11 +96,13 @@ export default {
 			if (!article.data.getArticle) {
 				this.articleNotFound = true
 			} else {
+                this.articleNotFound = false
 				this.article = article.data.getArticle
-	            console.log(article);
+                this.content = this.article.content
 			}
         },
         async createArticle() {
+            this.loading = true
             const { name, content, featured, published } = this.article;
             if (!name) return;
             const article = { name, content, featured, published };
@@ -100,6 +119,7 @@ export default {
 			this.$router.push("/dashboard/articles/" + article.id)
         },
 		async updateArticle() {
+            this.loading = true
 			const { name, content, featured, published } = this.article;
 			if (!name) return;
 			await API.graphql({
@@ -108,31 +128,39 @@ export default {
 			})
 		},
 		async deleteArticle() {
+            this.loading = true
 			const deletedArticle = await API.graphql({
 				query: deleteArticle,
 				variables: { input: { id: this.id } }
 			})
-			this.$router.push("/dashboard/articles/")
+			// this.$router.push("/dashboard/articles/")
 		},
-        subscribe() {
-            API.graphql({ query: onCreateArticle })
+        handleInput(event) {
+            console.log(event);
+            this.article.content = event.target.innerHTML
+        },
+        subscribeToCreate() {
+            this.createSubscription = API.graphql({ query: onCreateArticle })
             .subscribe({
                 next: (eventData) => {
                     let article = eventData.value.data.onCreateArticle;
+                    this.$router.push("/dashboard/articles/" + article.id)
                 }
             });
+            this.loading = false
         },
 		subscribeToUpdate() {
-			API.graphql({ query: onUpdateArticle })
+			this.updateSubscription = API.graphql({ query: onUpdateArticle })
             .subscribe({
                 next: (eventData) => {
 					console.log(eventData);
-                    let article = eventData.value.data.onCreateArticle;
+                    this.loading = false
+                    // let article = eventData.value.data.onCreateArticle;
                 }
             });
 		},
 		subscribeToDelete() {
-			API.graphql({ query: onDeleteArticle })
+			this.deleteSubscription = API.graphql({ query: onDeleteArticle })
             .subscribe({
                 next: (eventData) => {
 					console.log(eventData);

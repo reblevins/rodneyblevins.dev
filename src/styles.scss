@@ -77,6 +77,23 @@ button {
 	}
 }
 
+.loading {
+    position: absolute;
+    font-size: 3em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    background: rgba($dark, 0.9);
+}
+
+div[contenteditable="true"] {
+    background: white;
+    color: $green;
+}
 #app {
     height: calc(100vh - 2em);
     border-radius: 2.5rem;
@@ -179,6 +196,10 @@ ol {
         position: absolute;
         z-index: -1;
     }
+}
+
+.main {
+    position: relative;
 }
 
 section {
