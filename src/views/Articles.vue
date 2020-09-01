@@ -1,14 +1,12 @@
 <template>
 
-<div class="articles">
-    <ul class="articles" v-if="articles.length > 0">
-        <router-link tag="li" :to="'/dashboard/articles/' + article.id" v-for="(article, index) in articles" :key="'article-list-item-' + index">{{ article.name }}</router-link>
-        <router-link tag="li" to="/dashboard/articles/new">New Article</router-link>
+<section class="articles">
+    <ul class="articles-list">
+        <router-link class="link" tag="li" :to="'/dashboard/articles/' + article.id" v-for="(article, index) in articles" :key="'article-list-item-' + index" v-if="articles.length > 0">{{ article.name }}</router-link>
+		<li v-else>No articles</li>
+        <router-link class="link" tag="li" to="/dashboard/articles/new">New Article</router-link>
     </ul>
-    <ul v-else>
-        <li>No articles</li>
-    </ul>
-</div>
+</section>
 
 </template>
 
