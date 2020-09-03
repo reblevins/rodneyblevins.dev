@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { API, graphqlOperation } from 'aws-amplify';
+import { API } from 'aws-amplify';
 import { getArticle } from '../graphql/queries';
 import { createArticle, updateArticle, deleteArticle } from '../graphql/mutations';
 import { onCreateArticle, onUpdateArticle, onDeleteArticle } from '../graphql/subscriptions';
