@@ -8,7 +8,7 @@
 			<h4 class="text-lg">And I'm always ready to tackle a new challenge using my current skillset or to learn something completely new when the occasion rises.</h4>
         </div>
         <!-- <h3 class="text-xl py-4">Please select an option from the following menu:</h3> -->
-        <ul id="nav" tabindex="-1" class="max-w-none sm:max-w-xs">
+        <ul id="nav" class="max-w-none sm:max-w-xs">
 			<router-link tag="li" :to="item.to" class="menu-item" v-for="(item, index) in menuItems" :key="'menu-item-' + index">{{ item.label }}</router-link>
         </ul>
     </header>

@@ -9,10 +9,10 @@ import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faSpinner, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueWaypoint from 'vue-waypoint'
+Vue.use(VueWaypoint)
 
 Amplify.configure(aws_exports);
 
-Vue.use(VueWaypoint)
 
 library.add(faSpinner, faCloudUploadAlt)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
