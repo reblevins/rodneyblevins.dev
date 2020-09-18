@@ -17,6 +17,9 @@
                     "appId": "d14ltwo85s2d5s",
                     "type": "manual"
                 }
+            },
+            "auth": {
+                "rodneyblevinsdevc5ce11d8": {}
             }
         }
     }

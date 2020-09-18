@@ -1,4 +1,37 @@
-type Article @model {
+# type Article @model {
+#   id: ID!
+#   name: String!
+#   content: String
+#   featured: Boolean
+#   published: Boolean
+#   createdAt: AWSDateTime!
+#   updatedAt: AWSDateTime!
+# }
+
+# directive @auth(rules: [AuthRule!]!) on OBJECT | FIELD_DEFINITION
+# input AuthRule {
+#     allow: AuthStrategy!
+#     provider: AuthProvider
+#     groupClaim: String # defaults to "cognito:groups" when using Group auth
+#     groups: [String]  # Required when using Static Group auth
+#     groupsField: String # defaults to "groups" when using Dynamic Group auth
+#     operations: [ModelOperation] # Required for finer control
+#
+#     # The following arguments are deprecated. It is encouraged to use the 'operations' argument.
+#     queries: [ModelQuery]
+#     mutations: [ModelMutation]
+# }
+# enum AuthStrategy { groups private public }
+# enum AuthProvider { apiKey userPools }
+# enum ModelOperation { create update delete read }
+
+type Article @model
+    @auth(
+        rules: [
+            { allow: groups, groups: ["Admins"], operations: [create, update, delete, read] },
+            { allow: public, operations: [read] }
+        ]
+    ) {
   id: ID!
   name: String!
   content: String

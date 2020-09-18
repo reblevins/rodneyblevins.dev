@@ -109,6 +109,7 @@ export default {
             await API.graphql({
                 query: createArticle,
                 variables: {input: article},
+                authMode: 'AMAZON_COGNITO_USER_POOLS'
             });
             this.article = {
                 name: '',
@@ -124,14 +125,16 @@ export default {
 			if (!name) return;
 			await API.graphql({
 				query: updateArticle,
-				variables: { input: this.article }
+				variables: { input: this.article },
+                authMode: 'AMAZON_COGNITO_USER_POOLS'
 			})
 		},
 		async deleteArticle() {
             this.loading = true
 			const deletedArticle = await API.graphql({
 				query: deleteArticle,
-				variables: { input: { id: this.id } }
+				variables: { input: { id: this.id } },
+                authMode: 'AMAZON_COGNITO_USER_POOLS'
 			})
 			// this.$router.push("/dashboard/articles/")
 		},

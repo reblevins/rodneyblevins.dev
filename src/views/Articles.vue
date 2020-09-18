@@ -28,7 +28,8 @@ export default {
     methods: {
         async getArticles() {
             const articles = await API.graphql({
-                query: listArticles
+                query: listArticles,
+                authMode:'API_KEY'
             });
             console.log(articles);
             this.articles = articles.data.listArticles.items;

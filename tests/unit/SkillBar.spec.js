@@ -1,9 +1,7 @@
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import Vue from 'vue/dist/vue'
-import SkillBar from '@/components/SkillBar.vue'
 import VueWaypoint from 'vue-waypoint'
-Vue.use(VueWaypoint)
+import SkillBar from '@/components/SkillBar.vue'
 
 var skillBar;
 
@@ -11,7 +9,7 @@ describe('SkillBar.vue', () => {
     beforeEach(function () {
         skillBar = shallowMount(SkillBar, {
             directives: {
-                'v-waypoint'
+                waypoint: VueWaypoint
             },
             propsData: {
                 skill: {
@@ -22,7 +20,7 @@ describe('SkillBar.vue', () => {
             }
         })
     });
-    it('render correctly', () => {
+    it('should render .skill', () => {
         expect(skillBar.find('.skill'))
     })
     it('should render description', () => {
